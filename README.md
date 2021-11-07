@@ -1,3 +1,3 @@
 # TruthOrShot
-One Night Project \n
+One Night Project \
 Simple Web-App Drinking Game-App
