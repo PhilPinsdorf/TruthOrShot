@@ -28,7 +28,7 @@
         .then((data) => {
           button.innerHTML = data.text;
           button.style.color = data.color;
-          button.style.border = data.color;
+          button.style.border = '3px solid ' + data.color;
         });
     }
   </script>
