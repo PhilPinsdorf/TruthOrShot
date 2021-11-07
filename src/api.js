@@ -25,7 +25,7 @@ router.get('/sound', (req, res) => {
 var collections = [never, rather, truth]
 
 router.get('/newquestion', (req, res) => {
-  var doc = Math.floor(Math.random()*items.length)
+  var doc = Math.floor(Math.random() * collections.length)
 
 
   // Get the count of all questions
