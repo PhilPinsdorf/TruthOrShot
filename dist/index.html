@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truth or Shot</title>
+  </head>
+  <body>
+    <div class="question">
+      <button class="next" onclick="newQuestion()">result</button>
+    </div>
+    <audio
+      class="card-audio"
+      src="http://localhost:3000/.netlify/functions/api/sound"
+    ></audio>
+  </body>
+  <script>
+    var button = document.querySelector('.next');
+    var audio = document.querySelector('.card-audio');
+    newQuestion();
+    function newQuestion() {
+      audio.play();
+      fetch('http://localhost:3000/.netlify/functions/api/newquestion')
+        .then((response) => response.text())
+        .then((data) => {
+          button.innerHTML = data;
+        });
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+    html {
+      background-color: #121212;
+      color: #fafafa;
+      height: 100%;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .question {
+      width: 90%;
+      height: 70%;
+      margin: 0 auto;
+      box-shadow: #000 200 200 0 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .next {
+      background-color: #212121;
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+      color: #fafafa;
+      font-family: 'Source Code Pro', monospace;
+      font-size: xx-large;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</html>

@@ -17,10 +17,6 @@ app
   .use(favicon(path.resolve('images/favicon.ico')))
   .use('/.netlify/functions', router)
 
-router.get('/', (req, res) => {
-  res.sendFile(path.resolve('frontend/index.html'))
-})
-
 router.get('/api/sound', (req, res) => {
   res.sendFile(path.resolve('sounds/next_card.mp3'))
 })
