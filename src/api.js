@@ -16,7 +16,7 @@ app
 	.use(cors())
 
 router.get('/sound', (req, res) => {
-  res.sendFile(path.resolve('./sounds/next_card.mp3'))
+  res.sendFile('./sounds/next_card.mp3')
 })
 
 router.get('/newquestion', (req, res) => {
