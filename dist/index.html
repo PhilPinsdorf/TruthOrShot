@@ -24,7 +24,7 @@
       fetch(
         'https://truthorshot.netlify.app/.netlify/functions/api/newquestion'
       )
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((data) => {
           button.innerHTML = data.text;
           button.style.color = data.color;
