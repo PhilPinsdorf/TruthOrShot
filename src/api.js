@@ -7,9 +7,9 @@ const Question = require('./modules/Question.js');
 const path = require('path');
 const favicon = require('serve-favicon');
 const serverless = require('serverless-http')
-const never = require('../modules/question_never');
-const rather = require('../modules/question_rather');
-const truth = require('../modules/question_truth');
+const never = require('./modules/question_never');
+const rather = require('./modules/question_rather');
+const truth = require('./modules/question_truth');
 
 //Express Instance
 const app = express();
