@@ -33,6 +33,11 @@ router.get('/newquestion', (req, res) => {
   // Get a random entry
   var random = Math.floor(Math.random() * count)
 
+  var color = "#FAFAFA"
+  if (doc === never) color = "#fbd1d1";
+  if (doc === rather) color = "#c9f7f9";
+  if (doc === truth) color = "#d4f9c6";
+
   // Again query all users but only fetch one offset by our random #
   doc.findOne().skip(random).exec(
     function (err, result) {
@@ -40,7 +45,7 @@ router.get('/newquestion', (req, res) => {
       if (err) throw err
         res.status(200).send({
           text: result.text,
-          color: '#FFFFFF'
+          color: color
       })
     })
   })
