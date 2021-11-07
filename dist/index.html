@@ -21,7 +21,7 @@
     newQuestion();
     function newQuestion() {
       audio.play();
-      fetch('https://ww.truthorshot.de/.netlify/functions/api/newquestion')
+      fetch('https://www.truthorshot.de/.netlify/functions/api/newquestion')
         .then((response) => response.json())
         .then((data) => {
           button.innerHTML = data.text;
