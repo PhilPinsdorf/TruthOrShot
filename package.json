@@ -1,10 +1,20 @@
 {
+  "name": "shot-or-drink",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "cd node_modules/.bin/netlify-lambda serve src",
+    "build": "cd node_modules/.bin/netlify-lambda build src"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^6.0.12",
     "mysql": "^2.18.1",
+    "netlify-lambda": "^2.0.15",
     "path": "^0.12.7",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "serverless-http": "^2.7.0"
   }
 }

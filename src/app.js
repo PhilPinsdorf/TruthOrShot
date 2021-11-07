@@ -6,23 +6,26 @@ const secret = require('./modules/secrets.js');
 const Question = require('./modules/Question.js');
 const path = require('path');
 const favicon = require('serve-favicon');
+const serverless = require('serverless-http')
 
 //Express Instance
 const app = express();
+const router = express.Router();
 app
 	.use(express.static('public'))
 	.use(cors())
-  .use(favicon(path.resolve('images/favicon.ico')));
+  .use(favicon(path.resolve('images/favicon.ico')))
+  .use('/.netlify/functions', router)
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.sendFile(path.resolve('frontend/index.html'))
 })
 
-app.get('/api/sound', (req, res) => {
+router.get('/api/sound', (req, res) => {
   res.sendFile(path.resolve('sounds/next_card.mp3'))
 })
 
-app.get('/api/newquestion', (req, res) => {
+router.get('/api/newquestion', (req, res) => {
   // Get the count of all questions
   Question.count().exec(function (err, count) {
 
@@ -50,4 +53,6 @@ mongoose.connect(secret.mongoDbUri, { useNewUrlParser: true, useUnifiedTopology:
 	.catch((err) => {
 		console.log(err);
 	});
+
+  module.exports.handler = serverless(app)
 

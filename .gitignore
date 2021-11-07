@@ -105,3 +105,6 @@ dist
 
 # Prevent secrets to be leaked
 secrets.js
+
+# Hide Functions
+functions
