@@ -15,13 +15,14 @@ app
 	.use(express.static('public'))
 	.use(cors())
   .use(favicon(path.resolve('images/favicon.ico')))
-  .use('/.netlify/functions/api', router)
 
 router.get('/sound', (req, res) => {
-  res.sendFile(path.resolve('sounds/next_card.mp3'))
+  res.sendFile(path.resolve('./sounds/next_card.mp3'))
 })
 
 router.get('/newquestion', (req, res) => {
+  res.send("Test")
+
   // Get the count of all questions
   Question.count().exec(function (err, count) {
 
@@ -37,6 +38,8 @@ router.get('/newquestion', (req, res) => {
     })
   })
 })
+
+app.use('/.netlify/functions/api', router)
 
 //Database Connection and opening of Port
 mongoose.connect(secret.mongoDbUri, { useNewUrlParser: true, useUnifiedTopology: true })
