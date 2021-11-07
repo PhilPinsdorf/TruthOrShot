@@ -15,13 +15,13 @@ app
 	.use(express.static('public'))
 	.use(cors())
   .use(favicon(path.resolve('images/favicon.ico')))
-  .use('/.netlify/functions', router)
+  .use('/.netlify/functions/api', router)
 
-router.get('/api/sound', (req, res) => {
+router.get('/sound', (req, res) => {
   res.sendFile(path.resolve('sounds/next_card.mp3'))
 })
 
-router.get('/api/newquestion', (req, res) => {
+router.get('/newquestion', (req, res) => {
   // Get the count of all questions
   Question.count().exec(function (err, count) {
 
