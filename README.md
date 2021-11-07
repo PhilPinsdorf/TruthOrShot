@@ -1,5 +1,5 @@
 # Truth Or Shot
-http://truthorshot.de/ 
+http://www.truthorshot.de/ 
 
 \
 Infos:
