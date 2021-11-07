@@ -25,8 +25,7 @@ router.get('/sound', (req, res) => {
 var collections = [never, rather, truth]
 
 router.get('/newquestion', (req, res) => {
-  var doc = Math.floor(Math.random() * collections.length)
-
+  var doc = collections[Math.floor(Math.random() * collections.length)]
 
   // Get the count of all questions
   doc.count().exec(function (err, count) {
@@ -39,9 +38,9 @@ router.get('/newquestion', (req, res) => {
     function (err, result) {
       // Random Question
       if (err) throw err
-      res.status(200).send({
-        text: result.text,
-        color: '#FFFFFF'
+        res.status(200).send({
+          text: result.text,
+          color: '#FFFFFF'
       })
     })
   })
