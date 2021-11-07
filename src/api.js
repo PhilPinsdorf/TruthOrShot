@@ -14,14 +14,14 @@ const router = express.Router();
 app
 	.use(express.static('public'))
 	.use(cors())
-  .use(favicon(path.resolve('images/favicon.ico')))
+  .use(favicon(path.resolve('./src/images/favicon.ico')))
 
 router.get('/sound', (req, res) => {
   res.sendFile(path.resolve('./sounds/next_card.mp3'))
 })
 
 router.get('/newquestion', (req, res) => {
-  res.send("Test")
+  res.status(200).send("Test")
 
   // Get the count of all questions
   Question.count().exec(function (err, count) {
