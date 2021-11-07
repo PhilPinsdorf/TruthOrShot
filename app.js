@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve('frontend/index.html'))
 })
 
+app.get('/api/sound', (req, res) => {
+  res.sendFile(path.resolve('sounds/next_card.mp3'))
+})
+
 app.get('/api/newquestion', (req, res) => {
   // Get the count of all questions
   Question.count().exec(function (err, count) {
