@@ -20,8 +20,6 @@ router.get('/sound', (req, res) => {
 })
 
 router.get('/newquestion', (req, res) => {
-  res.status(200).send("Test")
-
   // Get the count of all questions
   Question.count().exec(function (err, count) {
 
