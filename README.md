@@ -1,4 +1,4 @@
-# TruthOrShot
+# Truth Or Shot
 http://truthorshot.de/ 
 
 \
