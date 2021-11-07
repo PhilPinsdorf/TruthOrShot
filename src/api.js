@@ -7,6 +7,9 @@ const Question = require('./modules/Question.js');
 const path = require('path');
 const favicon = require('serve-favicon');
 const serverless = require('serverless-http')
+const never = require('../modules/question_never');
+const rather = require('../modules/question_rather');
+const truth = require('../modules/question_truth');
 
 //Express Instance
 const app = express();
@@ -19,19 +22,27 @@ router.get('/sound', (req, res) => {
   res.sendFile('./sounds/next_card.mp3')
 })
 
+var collections = [never, rather, truth]
+
 router.get('/newquestion', (req, res) => {
+  var doc = Math.floor(Math.random()*items.length)
+
+
   // Get the count of all questions
-  Question.count().exec(function (err, count) {
+  doc.count().exec(function (err, count) {
 
   // Get a random entry
   var random = Math.floor(Math.random() * count)
 
   // Again query all users but only fetch one offset by our random #
-  Question.findOne().skip(random).exec(
+  doc.findOne().skip(random).exec(
     function (err, result) {
       // Random Question
       if (err) throw err
-      res.status(200).send(result.text)
+      res.status(200).send({
+        text: result.text,
+        color: '#FFFFFF'
+      })
     })
   })
 })
