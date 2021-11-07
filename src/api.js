@@ -17,6 +17,7 @@ const router = express.Router();
 app
 	.use(express.static('public'))
 	.use(cors())
+  .use(favicon('./images/favicon.ico'))
 
 router.get('/sound', (req, res) => {
   res.sendFile('./sounds/next_card.mp3')
