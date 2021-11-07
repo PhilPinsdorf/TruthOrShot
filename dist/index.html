@@ -12,7 +12,7 @@
     </div>
     <audio
       class="card-audio"
-      src="http://localhost:3000/.netlify/functions/api/sound"
+      src="https://truthorshot.netlify.app/.netlify/functions/api/sound"
     ></audio>
   </body>
   <script>
@@ -21,7 +21,9 @@
     newQuestion();
     function newQuestion() {
       audio.play();
-      fetch('http://localhost:3000/.netlify/functions/api/newquestion')
+      fetch(
+        'https://truthorshot.netlify.app/.netlify/functions/api/newquestion'
+      )
         .then((response) => response.text())
         .then((data) => {
           button.innerHTML = data;
