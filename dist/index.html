@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Truth or Shot</title>
+    <link rel=“shortcut icon”
+    href="https://truthorshot.netlify.app/assets/favicon.ico"
+    type=“image/x-icon”> <link rel=“icon”
+    href="https://truthorshot.netlify.app/assets/favicon.ico"
+    type=“image/x-icon”>
   </head>
   <body>
+    <div class="title">Title</div>
     <div class="question">
       <button class="next" onclick="newQuestion()">result</button>
     </div>
@@ -16,17 +22,22 @@
     ></audio>
   </body>
   <script>
+    var title = document.querySelector('.title');
     var button = document.querySelector('.next');
     var audio = document.querySelector('.card-audio');
     newQuestion();
     function newQuestion() {
       audio.play();
-      fetch('https://truthorshot.netlify.app/.netlify/functions/api/newquestion')
+      fetch(
+        'https://truthorshot.netlify.app/.netlify/functions/api/newquestion'
+      )
         .then((response) => response.json())
         .then((data) => {
           button.innerHTML = data.text;
           button.style.color = data.color;
           button.style.border = '3px solid ' + data.color;
+          title.style.color = data.color;
+          title.innerHTML = data.title;
         });
     }
   </script>

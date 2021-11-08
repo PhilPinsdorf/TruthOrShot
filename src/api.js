@@ -18,10 +18,6 @@ app
 	.use(express.static('public'))
 	.use(cors())
 
-router.get('/sound', (req, res) => {
-  res.sendFile('./sounds/next_card.mp3')
-})
-
 var collections = [never, rather, truth]
 
 router.get('/newquestion', (req, res) => {
@@ -34,9 +30,22 @@ router.get('/newquestion', (req, res) => {
   var random = Math.floor(Math.random() * count)
 
   var color = "#FAFAFA"
-  if (doc === never) color = "#fbd1d1";
-  if (doc === rather) color = "#c9f7f9";
-  if (doc === truth) color = "#d4f9c6";
+  var title = "Title"
+
+  if (doc === never) {
+    color = "#fbd1d1";
+    title = "ICH HAB NOCH NIE";
+  }
+
+  if (doc === rather) {
+    color = "#c9f7f9";
+    title = "WER WÜRDE EHER";
+  }
+
+  if (doc === truth) {
+    color = "#d4f9c6";
+    title = "WHARHEIT";
+  }
 
   // Again query all users but only fetch one offset by our random #
   doc.findOne().skip(random).exec(
@@ -45,6 +54,7 @@ router.get('/newquestion', (req, res) => {
       if (err) throw err
         res.status(200).send({
           text: result.text,
+          title: title,
           color: color
       })
     })
