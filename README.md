@@ -8,6 +8,6 @@ Infos:
 
 \
 Color Codes of Questions:
-- Green: Truth ==> Answer the Question or Drink a Shot
-- Red: Never Have I Ever ==> Everybody drinks a Shot who already did it
-- Blue: Who Would Rather ==> Everybody points at someone ==> Person with most points drinks Shot
+- Green: Truth => Answer the Question or Drink a Shot
+- Red: Never Have I Ever => Everybody drinks a Shot who already did it
+- Blue: Who Would Rather => Everybody points at someone => Person with most points drinks Shot
