@@ -44,7 +44,7 @@ router.get('/newquestion', (req, res) => {
 
   if (doc === truth) {
     color = "#d4f9c6";
-    title = "WHARHEIT";
+    title = "WAHRHEIT";
   }
 
   // Again query all users but only fetch one offset by our random #
