@@ -4,7 +4,7 @@ https://truthorshot.netlify.app/
 \
 Infos:
 - Simple Truth or Dare Web-App Drinking Game
-- One Night Project
+- Weekend Project
 
 \
 Color Codes of Questions:
