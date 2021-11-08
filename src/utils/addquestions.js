@@ -1,9 +1,9 @@
 //Imports
 const mongoose = require('mongoose');
 const secret = require('../modules/secrets.js');
-const never = require('../modules/question_never');
-const rather = require('../modules/question_rather');
-const truth = require('../modules/question_truth');
+const never = require('../modules/collections/question_never');
+const rather = require('../modules/collections/question_rather');
+const truth = require('../modules/collections/question_truth');
 const fs = require('fs');
 
 //Database Connection and opening of Port

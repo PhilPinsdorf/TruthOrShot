@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const secret = require('./modules/database.js');
 const serverless = require('serverless-http')
 const never = require('./modules/collections/question_never');
-const rather = require('./modules/question_rather');
-const truth = require('./modules/question_truth');
+const rather = require('./modules/collections/question_rather');
+const truth = require('./modules/collections/question_truth');
 
 //Express Instance
 const app = express();
