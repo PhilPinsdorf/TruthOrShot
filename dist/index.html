@@ -25,9 +25,12 @@
     var title = document.querySelector('.title');
     var button = document.querySelector('.next');
     var audio = document.querySelector('.card-audio');
+    var lastColor = '#f00';
+    var loader = '<div class="lds-dual-ring"></div>';
     newQuestion();
     function newQuestion() {
       audio.play();
+      button.innerHTML = loader;
       fetch(
         'https://truthorshot.netlify.app/.netlify/functions/api/newquestion'
       )
@@ -38,6 +41,7 @@
           button.style.border = '3px solid ' + data.color;
           title.style.color = data.color;
           title.innerHTML = data.title;
+          button.style.setProperty('--ring-color', data.color);
         });
     }
   </script>
@@ -68,6 +72,7 @@
     }
 
     .next {
+      --ring-color: #fafafa;
       background-color: #212121;
       display: block;
       margin: 10px 0;
@@ -97,6 +102,33 @@
       left: 50%;
       margin-right: -50%;
       transform: translate(-50%, -50%);
+    }
+
+    .lds-dual-ring {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+    }
+
+    .lds-dual-ring:after {
+      content: ' ';
+      display: block;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      border-color: var(--ring-color) transparent var(--ring-color) transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+
+    @keyframes lds-dual-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   </style>
 </html>
