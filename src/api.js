@@ -2,12 +2,9 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const secret = require('./modules/secrets.js');
-const Question = require('./modules/Question.js');
-const path = require('path');
-const favicon = require('serve-favicon');
+const secret = require('./modules/database.js');
 const serverless = require('serverless-http')
-const never = require('./modules/question_never');
+const never = require('./modules/collections/question_never');
 const rather = require('./modules/question_rather');
 const truth = require('./modules/question_truth');
 
@@ -32,18 +29,27 @@ router.get('/newquestion', (req, res) => {
   var color = "#FAFAFA"
   var title = "Title"
 
+  /*
+    Future Colors:
+    Red: #FF5D4E
+    Orange: #FF9A00
+    Yellow: #FFFF3D
+    Blue: #85E8E0
+    Green: #47D98B
+  */
+
   if (doc === never) {
-    color = "#fbd1d1";
+    color = "#FF5D4E";
     title = "ICH HAB NOCH NIE";
   }
 
   if (doc === rather) {
-    color = "#c9f7f9";
+    color = "#85E8E0";
     title = "WER WÜRDE EHER";
   }
 
   if (doc === truth) {
-    color = "#d4f9c6";
+    color = "#47D98B";
     title = "WAHRHEIT";
   }
 
