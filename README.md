@@ -1,5 +1,5 @@
 # Truth Or Shot
-http://www.truthorshot.de/ 
+https://truthorshot.netlify.app/
 
 \
 Infos:
