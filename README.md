@@ -1,6 +1,6 @@
 # Truth Or Shot
 
-[Badge] https://truthorshot.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d832b768-2a45-46df-90df-c50e249b8e66/deploy-status)] https://truthorshot.netlify.app/
 
 \
 <u>Infos:</u>
