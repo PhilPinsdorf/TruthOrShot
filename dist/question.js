@@ -19,7 +19,7 @@ function generate() {
     button.innerHTML = loader;
 
     //Get new Question from Server
-    fetch('https://truthorshot.netlify.app/.netlify/functions/api/generateQuestion')
+    fetch('https://truthorshot.netlify.app/.netlify/functions/api/newquestion')
         .then((response) => response.json())
         .then((data) => {
             html.style.setProperty('--accent-color', data.color);
