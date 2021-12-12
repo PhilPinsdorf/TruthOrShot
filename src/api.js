@@ -23,39 +23,38 @@ router.get('/newquestion', (req, res) => {
   // Get the count of all questions
   doc.count().exec(function (err, count) {
 
-  // Get a random entry
-  var random = Math.floor(Math.random() * count)
+    // Get a random entry
+    var random = Math.floor(Math.random() * count)
 
-  var color = "#FAFAFA"
-  var title = "Title"
+    var color = "#FAFAFA"
+    var title = "Title"
 
-  /*
-    Future Colors:
-    Red: #FF5D4E
-    Orange: #FF9A00
-    Yellow: #FFFF3D
-    Blue: #85E8E0
-    Green: #47D98B
-  */
+    /*
+      Future Colors:
+      Red: #FF5D4E
+      Orange: #FF9A00
+      Yellow: #FFFF3D
+      Blue: #85E8E0
+      Green: #47D98B
+    */
 
-  if (doc === never) {
-    color = "#FF5D4E";
-    title = "ICH HAB NOCH NIE";
-  }
+    if (doc === never) {
+      color = "#FF5D4E";
+      title = "ICH HAB NOCH NIE";
+    }
 
-  if (doc === rather) {
-    color = "#85E8E0";
-    title = "WER WÜRDE EHER";
-  }
+    if (doc === rather) {
+      color = "#85E8E0";
+      title = "WER WÜRDE EHER";
+    }
 
-  if (doc === truth) {
-    color = "#47D98B";
-    title = "WAHRHEIT";
-  }
+    if (doc === truth) {
+      color = "#47D98B";
+      title = "WAHRHEIT";
+    }
 
-  // Again query all users but only fetch one offset by our random #
-  doc.findOne().skip(random).exec(
-    function (err, result) {
+    // Again query all users but only fetch one offset by our random #
+    doc.findOne().skip(random).exec((err, result) => {
       // Random Question
       if (err) throw err
         res.status(200).send({
@@ -81,5 +80,5 @@ mongoose.connect(secret.mongoDbUri, { useNewUrlParser: true, useUnifiedTopology:
 		console.log(err);
 	});
 
-  module.exports.handler = serverless(app)
+module.exports.handler = serverless(app)
 
