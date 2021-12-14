@@ -17,7 +17,7 @@ mongoose.connect(mongoDbUri, { useNewUrlParser: true, useUnifiedTopology: true }
 		app.use(express.json());
 		app.use(cors());
 		app.use(express.static('public'))
-		app.use('/.netlify/functions/api', router)
+		app.use('/.netlify/functions/router', router)
 	})
 	.catch((err) => {
 		console.log(err);
