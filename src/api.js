@@ -2,6 +2,7 @@
 const express = require('express');
 const serverless = require('serverless-http')
 const cors = require('cors');
+const mongoose = require('mongoose');
 const router = require('./router.js')
 
 // Express Instance
