@@ -8,6 +8,8 @@ const questionShema = require('./modules/questionShema');
 // Express Instance
 const app = express();
 const router = express.Router();
+app.use(cors());
+app.use(express.static('public'))
 
 // Route to new question
 router.get('/newquestion', (req, res) => {
@@ -53,6 +55,8 @@ router.get('/newquestion', (req, res) => {
     })
 })
 
+app.use('/.netlify/functions/api', router)
+
 // Connect to Database, then start express app
 var mongoDbUri = 'mongodb+srv://tos:IfhWYIlA70YTitpA@truthorshot.n259x.mongodb.net/Questions?retryWrites=true&w=majority'
 mongoose.connect(mongoDbUri, { useNewUrlParser: true })
@@ -60,9 +64,6 @@ mongoose.connect(mongoDbUri, { useNewUrlParser: true })
 		console.log('Connected to Database!');
 		app.listen(3000, () => console.log('Listen to 3000!'));
 		app.use(express.json());
-		app.use(cors());
-		app.use(express.static('public'))
-		app.use('/.netlify/functions/api', router)
 	})
 	.catch((err) => {
 		console.log(err);
