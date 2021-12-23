@@ -1,15 +1,11 @@
 // Imports
 const express = require('express');
-const mongoose = require('mongoose');
 const serverless = require('serverless-http')
 const cors = require('cors');
-const questionShema = require('./modules/questionShema');
 
 // Express Instance
 const app = express();
 const router = express.Router();
-
-
 
 app.use('/.netlify/functions/api', router)
 
