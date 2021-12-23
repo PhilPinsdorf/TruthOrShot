@@ -2,10 +2,10 @@
 const express = require('express');
 const serverless = require('serverless-http')
 const cors = require('cors');
+const router = require('./router.js')
 
 // Express Instance
 const app = express();
-const router = express.Router();
 
 app.use('/.netlify/functions/api', router)
 
