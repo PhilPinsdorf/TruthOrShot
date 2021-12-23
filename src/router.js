@@ -1,3 +1,10 @@
+// Imports
+const express = require('express');
+const mongoose = require('mongoose');
+const questionShema = require('./modules/questionShema');
+
+var router = express.Router();
+
 // Route to new question
 router.get('/newquestion', (req, res) => {
     var doc = questionShema[Math.floor(Math.random() * questionShema.length)]
@@ -41,3 +48,5 @@ router.get('/newquestion', (req, res) => {
         })
     })
 })
+
+module.exports = router;
