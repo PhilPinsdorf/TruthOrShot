@@ -27,3 +27,10 @@ function generate() {
             title.innerHTML = data.title;
         });
 }
+
+// Space Listener
+document.addEventListener('keyup', event => {
+  if (event.code === 'Space') {
+    generate();
+  }
+})
