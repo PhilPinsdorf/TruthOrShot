@@ -17,9 +17,11 @@ function generate() {
 
     //Replace text with Loading Ring until the Server sends back a result
     button.innerHTML = loader;
+    title.innerHTML = '';
+    html.style.setProperty('--accent-color', '#fafafa');
 
     //Get new Question from Server
-    fetch('https://truthorshot.netlify.app/.netlify/functions/api/newquestion')
+    fetch('http://localhost:3000/api/newquestion')
         .then((response) => response.json())
         .then((data) => {
             html.style.setProperty('--accent-color', data.color);
